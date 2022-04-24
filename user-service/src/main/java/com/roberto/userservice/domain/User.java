@@ -1,13 +1,13 @@
 package com.roberto.userservice.domain;
 
+import com.roberto.userservice.dto.UserDTO;
 import lombok.*;
+import org.springframework.beans.BeanUtils;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-@Getter
-@Setter
-@ToString
+@Data
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Entity
@@ -20,7 +20,13 @@ public class User implements Serializable {
 
     private String authId;
 
+    private String email;
+
     private String identification;
 
     private Boolean activated;
+
+    public User(UserDTO userDTO) {
+        BeanUtils.copyProperties(userDTO, this);
+    }
 }

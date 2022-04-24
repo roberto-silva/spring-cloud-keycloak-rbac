@@ -1,0 +1,33 @@
+app:
+  config:
+    keycloak:
+      server-url: http://localhost:8080/auth
+      realm: micro
+      clientId: micro-client
+      client-secret: Lpy56qlfBPlOrhHyW65eH85CzlueV1zF
+
+spring:
+  application:
+    name: user-service
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/micro?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true
+    username: root
+    password: root
+  jpa:
+    hibernate.ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    database: MYSQL
+    show-sql: true
+
+server:
+  port: 8083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+
+info:
+  app:
+    name: ${spring.application.name}
