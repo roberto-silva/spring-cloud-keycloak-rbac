@@ -48,7 +48,7 @@ public class KeycloakUserService {
                     .delete(userRepresentationOptional.get().getId())
                     .getStatus();
         } else {
-            throw new IllegalArgumentException("There is already a user with this email address.");
+            throw new IllegalArgumentException("There is no user with this email.");
         }
 
     }

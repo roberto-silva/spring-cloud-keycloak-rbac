@@ -11,7 +11,7 @@ spring:
     name: user-service
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/user-service-db?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://localhost:3306/role-service-db?createDatabaseIfNotExist=true&useUnicode=true&characterEncoding=utf8&allowPublicKeyRetrieval=true
     username: root
     password: root
   jpa:
@@ -21,7 +21,7 @@ spring:
     show-sql: true
 
 server:
-  port: 8083
+  port: 8084
 
 eureka:
   client:

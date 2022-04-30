@@ -18,6 +18,13 @@ spring:
             - Path=/users/**
           filters:
             - StripPrefix=1
+        ## Role SERVICE
+        - id: role-service
+          uri: lb://role-service
+          predicates:
+            - Path=/roles/**
+          filters:
+            - StripPrefix=1
   security:
     oauth2:
       client:
