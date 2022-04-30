@@ -21,7 +21,7 @@ public class KeycloakRoleService {
     public Boolean createRole(RoleRepresentation roleRepresentation) {
 
         if (getKeycloakRoleByName(roleRepresentation.getName()).isPresent()) {
-            throw new IllegalArgumentException("There is already a user with this email address.");
+            throw new IllegalArgumentException("There is already a role with this name.");
         }
         int lastSize = keyCloakManager.getKeyCloakInstanceWithRealm().roles().list().size();
         keyCloakManager.getKeyCloakInstanceWithRealm().roles().create(roleRepresentation);
@@ -56,7 +56,7 @@ public class KeycloakRoleService {
 
             return lastSize > newSize;
         } else {
-            throw new IllegalArgumentException("There is no paper with this name.");
+            throw new IllegalArgumentException("There is no role with this name.");
         }
 
     }
